@@ -1,0 +1,433 @@
+/**
+ * GrowthLab Bundle Builder for WooCommerce — frontend picker styles.
+ *
+ * Deliberately low-specificity and theme-neutral: colours come from a small set
+ * of custom properties so a theme can restyle the picker without !important.
+ */
+
+.glbbwc-bundle {
+	--glbbwc-accent: #7f54b3;
+	--glbbwc-accent-contrast: #fff;
+	--glbbwc-border: #e0e0e0;
+	--glbbwc-muted: #6d6d6d;
+	--glbbwc-radius: 8px;
+	--glbbwc-surface: #fff;
+
+	margin: 0 0 2em;
+}
+
+.glbbwc-bundle *,
+.glbbwc-bundle *::before,
+.glbbwc-bundle *::after {
+	box-sizing: border-box;
+}
+
+/* Intro
+   ------------------------------------------------------------------------- */
+
+.glbbwc-bundle__intro {
+	margin-bottom: 1.25em;
+}
+
+.glbbwc-bundle__summary {
+	font-size: 1.15em;
+	font-weight: 600;
+	margin: 0;
+}
+
+/* Product grid
+   ------------------------------------------------------------------------- */
+
+.glbbwc-bundle__grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	list-style: none;
+	margin: 0 0 1.5rem;
+	padding: 0;
+}
+
+.glbbwc-product {
+	margin: 0;
+	padding: 0;
+}
+
+.glbbwc-product__toggle {
+	background: var(--glbbwc-surface);
+	border: 2px solid var(--glbbwc-border);
+	border-radius: var(--glbbwc-radius);
+	color: inherit;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	font: inherit;
+	gap: 0.5rem;
+	height: 100%;
+	padding: 0.75rem;
+	text-align: left;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+	width: 100%;
+}
+
+.glbbwc-product__toggle:hover:not(:disabled) {
+	border-color: var(--glbbwc-accent);
+}
+
+.glbbwc-product__toggle:focus-visible {
+	outline: 2px solid var(--glbbwc-accent);
+	outline-offset: 2px;
+}
+
+.glbbwc-product__toggle:disabled {
+	cursor: not-allowed;
+}
+
+.glbbwc-product.is-disabled .glbbwc-product__toggle {
+	opacity: 0.45;
+}
+
+.glbbwc-product.is-selected .glbbwc-product__toggle {
+	border-color: var(--glbbwc-accent);
+	box-shadow: 0 0 0 3px rgba(127, 84, 179, 0.15);
+}
+
+.glbbwc-product__media {
+	display: block;
+	position: relative;
+}
+
+.glbbwc-product__media img {
+	border-radius: calc(var(--glbbwc-radius) - 4px);
+	display: block;
+	height: auto;
+	max-width: 100%;
+	width: 100%;
+}
+
+.glbbwc-product__check {
+	align-items: center;
+	background: var(--glbbwc-surface);
+	border: 2px solid var(--glbbwc-border);
+	border-radius: 50%;
+	display: flex;
+	height: 26px;
+	justify-content: center;
+	position: absolute;
+	right: 6px;
+	top: 6px;
+	width: 26px;
+}
+
+.glbbwc-product.is-selected .glbbwc-product__check {
+	background: var(--glbbwc-accent);
+	border-color: var(--glbbwc-accent);
+}
+
+.glbbwc-product.is-selected .glbbwc-product__check::after {
+	border-bottom: 2px solid var(--glbbwc-accent-contrast);
+	border-left: 2px solid var(--glbbwc-accent-contrast);
+	content: "";
+	height: 5px;
+	margin-top: -2px;
+	transform: rotate(-45deg);
+	width: 10px;
+}
+
+.glbbwc-product__title {
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.glbbwc-product__price {
+	color: var(--glbbwc-muted);
+	font-size: 0.9em;
+}
+
+.glbbwc-product__price del {
+	opacity: 0.6;
+}
+
+/* Action bar
+   ------------------------------------------------------------------------- */
+
+.glbbwc-bundle__bar {
+	align-items: center;
+	background: var(--glbbwc-surface);
+	border: 1px solid var(--glbbwc-border);
+	border-radius: var(--glbbwc-radius);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-between;
+	padding: 1rem;
+	position: sticky;
+	bottom: 0;
+	z-index: 5;
+}
+
+.glbbwc-bundle__status {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem 1.5rem;
+}
+
+.glbbwc-bundle__counter {
+	font-weight: 600;
+}
+
+.glbbwc-bundle.is-complete .glbbwc-bundle__counter {
+	color: #2f7d32;
+}
+
+.glbbwc-bundle__total-label {
+	color: var(--glbbwc-muted);
+	margin-right: 0.35rem;
+}
+
+.glbbwc-bundle__total-value {
+	font-weight: 700;
+}
+
+.glbbwc-bundle__submit[disabled] {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.glbbwc-bundle.is-busy {
+	pointer-events: none;
+}
+
+/* Notices
+   ------------------------------------------------------------------------- */
+
+.glbbwc-bundle__notices:empty {
+	display: none;
+}
+
+.glbbwc-bundle__notices ul {
+	border-radius: var(--glbbwc-radius);
+	list-style: none;
+	margin: 0 0 1rem;
+	padding: 0.75rem 1rem;
+}
+
+.glbbwc-bundle__notices--error ul {
+	background: #fdecea;
+	border-left: 4px solid #c9302c;
+}
+
+.glbbwc-bundle__notices--info ul {
+	background: #eef4fb;
+	border-left: 4px solid #2f6fab;
+}
+
+.glbbwc-bundle__notices--success ul {
+	background: #edf7ed;
+	border-left: 4px solid #2f7d32;
+}
+
+/* "View cart" follow-up, shown beneath the success message when the shopper
+   stays on the picker instead of being sent to the cart.
+
+   Styled here rather than left to the theme's `.button`, because block themes
+   frequently do not style that class and the link would read as plain text.
+   The `button` class is still applied, so a theme that does style it wins. */
+.glbbwc-bundle__notice-action {
+	margin-top: 0.75rem;
+}
+
+.glbbwc-bundle__view-cart {
+	background: var(--glbbwc-accent);
+	border: 1px solid var(--glbbwc-accent);
+	border-radius: var(--glbbwc-radius);
+	color: var(--glbbwc-accent-contrast);
+	display: inline-block;
+	font-size: 0.9375em;
+	font-weight: 600;
+	line-height: 1.2;
+	padding: 0.55em 1.15em;
+	text-decoration: none;
+}
+
+.glbbwc-bundle__view-cart:hover,
+.glbbwc-bundle__view-cart:focus {
+	color: var(--glbbwc-accent-contrast);
+	filter: brightness(1.1);
+	text-decoration: none;
+}
+
+.glbbwc-bundle__view-cart:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.glbbwc-notice {
+	background: #f6f6f6;
+	border-left: 4px solid var(--glbbwc-border);
+	padding: 0.75rem 1rem;
+}
+
+/* Category slots (1.1.0)
+   A single-slot bundle renders one unstyled wrapper, so it looks exactly as it
+   did in 1.0. Spacing and headers only appear once there is more than one slot.
+   ------------------------------------------------------------------------- */
+
+.glbbwc-bundle__slot + .glbbwc-bundle__slot {
+	margin-top: 1.75rem;
+}
+
+.glbbwc-bundle__slot-header {
+	align-items: baseline;
+	border-bottom: 1px solid var(--glbbwc-border, #e0e0e0);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+	justify-content: space-between;
+	margin-bottom: 0.85rem;
+	padding-bottom: 0.4rem;
+}
+
+.glbbwc-bundle__slot-title {
+	font-size: 1.05rem;
+	line-height: 1.3;
+	margin: 0;
+}
+
+.glbbwc-bundle__slot-counter {
+	color: #555;
+	font-size: 0.875rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.glbbwc-bundle__slot.is-complete .glbbwc-bundle__slot-counter {
+	color: #2f7d32;
+	font-weight: 600;
+}
+
+/* Live bundle preview
+   -------------------------------------------------------------------------
+   Assembles itself from the tiles the customer picks, so the "product image"
+   for a bundle is the customer's own build rather than a static photo. */
+
+.glbbwc-bundle__preview {
+	background: var(--glbbwc-surface);
+	border: 1px solid var(--glbbwc-border);
+	border-radius: var(--glbbwc-radius);
+	margin: 0 0 1.5rem;
+	padding: 1rem;
+}
+
+.glbbwc-bundle__preview[hidden] {
+	display: none;
+}
+
+.glbbwc-bundle__preview-title {
+	font-size: 0.9em;
+	letter-spacing: 0.04em;
+	margin: 0 0 0.75rem;
+	text-transform: uppercase;
+}
+
+.glbbwc-bundle__preview-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.glbbwc-bundle__preview-slot {
+	align-items: center;
+	border: 2px solid var(--glbbwc-border);
+	border-radius: var(--glbbwc-radius);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	transition: border-color 0.15s ease-in-out;
+	width: 96px;
+}
+
+.glbbwc-bundle__preview-slot:not(.is-empty) {
+	border-color: var(--glbbwc-accent);
+}
+
+.glbbwc-bundle__preview-slot.is-empty {
+	border-style: dashed;
+	height: 96px;
+}
+
+.glbbwc-bundle__preview-slot img {
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+.glbbwc-bundle__preview-placeholder {
+	color: var(--glbbwc-muted);
+	font-size: 1.5em;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.glbbwc-bundle__preview-caption {
+	display: block;
+	font-size: 0.75em;
+	line-height: 1.3;
+	overflow: hidden;
+	padding: 0.4rem 0.3rem;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+}
+
+/* Stock notice
+   ------------------------------------------------------------------------- */
+
+.glbbwc-bundle__stock {
+	color: #b3541e;
+	font-size: 0.95em;
+	font-weight: 600;
+	margin: 0.4em 0 0;
+}
+
+/* Cart / checkout selection list
+   ------------------------------------------------------------------------- */
+
+.glbbwc-selection-item {
+	font-size: 0.9em;
+	line-height: 1.5;
+	white-space: nowrap;
+}
+
+/* Small screens
+   ------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+	.glbbwc-bundle__grid {
+		gap: 0.75rem;
+		grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+	}
+
+	.glbbwc-bundle__bar {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.glbbwc-bundle__submit {
+		width: 100%;
+	}
+
+	.glbbwc-bundle__preview-slot {
+		width: 72px;
+	}
+
+	.glbbwc-bundle__preview-slot.is-empty {
+		height: 72px;
+	}
+}

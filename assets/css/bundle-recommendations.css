@@ -1,0 +1,151 @@
+/**
+ * GrowthLab Bundle Builder for WooCommerce — "Frequently Bundled With" section.
+ */
+
+.glbbwc-recommend {
+	--glbbwc-recommend-border: #e0e0e0;
+	--glbbwc-recommend-accent: #7c4dff;
+
+	margin: 2.5rem 0;
+}
+
+.glbbwc-recommend__title {
+	font-size: 1.25rem;
+	margin: 0 0 1rem;
+}
+
+.glbbwc-recommend__grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.glbbwc-recommend__item {
+	border: 1px solid var(--glbbwc-recommend-border);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	padding: 0.75rem;
+	position: relative;
+	text-align: center;
+}
+
+.glbbwc-recommend__item--main {
+	border-color: var(--glbbwc-recommend-accent);
+}
+
+.glbbwc-recommend__link {
+	color: inherit;
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	text-decoration: none;
+}
+
+.glbbwc-recommend__media img {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+.glbbwc-recommend__name {
+	font-size: 0.9rem;
+	line-height: 1.35;
+}
+
+.glbbwc-recommend__price {
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.glbbwc-recommend__badge {
+	background: var(--glbbwc-recommend-accent);
+	border-radius: 999px;
+	color: #fff;
+	font-size: 0.7rem;
+	left: 50%;
+	padding: 1px 8px;
+	position: absolute;
+	top: -9px;
+	transform: translateX(-50%);
+	white-space: nowrap;
+}
+
+.glbbwc-recommend__bar {
+	align-items: center;
+	border-top: 1px solid var(--glbbwc-recommend-border);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1rem;
+	justify-content: space-between;
+	margin-top: 1rem;
+	padding-top: 1rem;
+}
+
+.glbbwc-recommend__total {
+	font-size: 1rem;
+}
+
+.glbbwc-recommend.is-busy {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.glbbwc-recommend__notices ul {
+	list-style: none;
+	margin: 1rem 0 0;
+	padding: 0.75rem 1rem;
+}
+
+.glbbwc-recommend__notices--error ul {
+	background: #fdf0f0;
+	border-left: 4px solid #c9356c;
+}
+
+.glbbwc-recommend__notices--success ul {
+	background: #edf7ed;
+	border-left: 4px solid #2f7d32;
+}
+
+/* "View cart" follow-up, shown beneath the success message when the shopper
+   stays on the product page instead of being sent to the cart. Styled here for
+   the same reason as the picker's: block themes often leave `.button` unstyled. */
+.glbbwc-recommend__notice-action {
+	margin-top: 0.75rem;
+}
+
+.glbbwc-recommend__view-cart {
+	background: var(--glbbwc-recommend-accent);
+	border: 1px solid var(--glbbwc-recommend-accent);
+	border-radius: 6px;
+	color: #fff;
+	display: inline-block;
+	font-size: 0.9375em;
+	font-weight: 600;
+	line-height: 1.2;
+	padding: 0.55em 1.15em;
+	text-decoration: none;
+}
+
+.glbbwc-recommend__view-cart:hover,
+.glbbwc-recommend__view-cart:focus {
+	color: #fff;
+	filter: brightness(1.1);
+	text-decoration: none;
+}
+
+.glbbwc-recommend__view-cart:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+	.glbbwc-recommend__grid {
+		grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	}
+}

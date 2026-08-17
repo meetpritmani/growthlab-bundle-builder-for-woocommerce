@@ -1,0 +1,176 @@
+/**
+ * GrowthLab Bundle Builder for WooCommerce — admin styles.
+ */
+
+/* Category slot repeater
+   ------------------------------------------------------------------------- */
+
+.glbbwc-slots {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-width: 620px;
+}
+
+.glbbwc-slot {
+	align-items: flex-start;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	display: flex;
+	gap: 14px;
+	padding: 12px 14px;
+	position: relative;
+}
+
+.glbbwc-slot__handle {
+	color: #a7aaad;
+	font-size: 14px;
+	line-height: 2.4;
+}
+
+.glbbwc-slot__field {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.glbbwc-slot__field--count {
+	flex: 0 0 auto;
+}
+
+.glbbwc-slot__label {
+	color: #50575e;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.glbbwc-slot__categories {
+	min-width: 260px;
+}
+
+.glbbwc-slot__categories option:disabled {
+	color: #a7aaad;
+}
+
+.glbbwc-slot__remove {
+	color: #b32d2e;
+	margin-left: auto;
+	text-decoration: none;
+}
+
+.glbbwc-slot__remove[hidden] {
+	display: none;
+}
+
+.glbbwc-form-table .description {
+	margin-top: 6px;
+}
+
+.glbbwc-status {
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.6;
+	padding: 2px 8px;
+	text-transform: uppercase;
+}
+
+.glbbwc-status--active {
+	background: #edf7ed;
+	color: #2f7d32;
+}
+
+.glbbwc-status--inactive {
+	background: #f0f0f1;
+	color: #646970;
+}
+
+.column-glbbwc_items,
+.column-glbbwc_price,
+.column-glbbwc_status {
+	width: 90px;
+}
+
+.column-glbbwc_stock {
+	width: 110px;
+}
+
+.column-glbbwc_shortcode {
+	width: 190px;
+}
+
+/* Derived availability
+   ------------------------------------------------------------------------- */
+
+.glbbwc-stock {
+	font-weight: 600;
+}
+
+.glbbwc-stock--in {
+	color: #2f7d32;
+}
+
+.glbbwc-stock--out {
+	color: #b32d2e;
+}
+
+.glbbwc-stock-readout {
+	background: #f6f7f7;
+	border-left: 4px solid #7f54b3;
+	margin: 0.75em 0 0;
+	padding: 0.5em 0.75em;
+}
+
+/* Gallery picker
+   ------------------------------------------------------------------------- */
+
+.glbbwc-gallery__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	list-style: none;
+	margin: 0 0 8px;
+	padding: 0;
+}
+
+.glbbwc-gallery__list:empty {
+	margin: 0;
+}
+
+.glbbwc-gallery__item {
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	line-height: 0;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+}
+
+.glbbwc-gallery__item img {
+	display: block;
+	height: 80px;
+	object-fit: cover;
+	width: 80px;
+}
+
+.glbbwc-gallery__remove {
+	background: rgba(0, 0, 0, 0.65);
+	border: 0;
+	border-radius: 0 0 0 3px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1;
+	padding: 3px 6px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.glbbwc-gallery__remove:hover,
+.glbbwc-gallery__remove:focus {
+	background: #b32d2e;
+}
