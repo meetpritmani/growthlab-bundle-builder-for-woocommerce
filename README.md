@@ -290,6 +290,14 @@ Conventions in use: all classes and hooks prefixed `GLBBWC_` / `glbbwc_`, every 
 
 ---
 
+## Security & internationalization review
+
+Both AJAX endpoints (`glbbwc_add_bundle_to_cart`, `glbbwc_add_recommended_to_cart`) require `check_ajax_referer()`, and every admin form handler calls `check_admin_referer()` before its `current_user_can()` check. All `$_POST`/`$_GET` reads go through `wp_unslash()` paired with `absint()`, `sanitize_text_field()`, or `sanitize_key()` before use; there is no raw SQL, `eval()`, `extract()`, or `unserialize()` anywhere in the plugin.
+
+All 177 translatable strings use the plugin's own text domain consistently, `sprintf()`/`_n()` calls carry `translators:` comments, and the few strings passed from PHP to JavaScript (e.g. the admin gallery frame's button labels) are localized with `wp_localize_script()` rather than hardcoded client-side. The WordPress.org Plugin Check tool's `i18n_usage` and `late_escaping` checks both pass with no findings.
+
+---
+
 ## Known limitations
 
 - Simple products only — variable products are not offered in the picker.
