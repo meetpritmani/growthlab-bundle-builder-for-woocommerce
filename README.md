@@ -7,7 +7,7 @@ Since 1.1.0 it also ships two standalone extras: curated **"Frequently Bundled W
 | | |
 | --- | --- |
 | **Requires** | WordPress 6.4+, WooCommerce 8.0+, PHP 8.0+ |
-| **Tested against** | WordPress 7.0, WooCommerce 11.0 |
+| **Tested against** | WordPress 7.1, WooCommerce 11.0 |
 | **Depends on** | WooCommerce only. No paid extensions, no build step, no frontend framework |
 | **License** | GPL-2.0-or-later |
 
